@@ -34,7 +34,7 @@ public class GradeServiceJdbcTemplateTest {
 		assertTrue(listerGradeApresSave.stream().anyMatch( g ->g.getCode().equals("m01")));
 		// TODO vérifier qu'il est possible de récupérer le nouveau grade via la méthode lister
 		// TODO modifier un grade
-		grade.setId(1);
+		
 		grade.setCode("m02");
 		gradeService.mettreAJour(grade);
 		List<Grade> listerGradeMAJ = gradeService.lister();
