@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 @Entity
 public class ProfilRemuneration {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String code;
 	@ManyToMany

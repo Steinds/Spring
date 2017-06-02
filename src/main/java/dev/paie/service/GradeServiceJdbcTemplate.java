@@ -24,13 +24,13 @@ this.jdbcTemplate = new JdbcTemplate(dataSource);
  }
 @Override
 public void sauvegarder(Grade nouveauGrade) {
-	String sql = "INSERT INTO grade (id,code,nbHeureBase,tauxBase) VALUES (?,?,?,?)";
+	String sql = "INSERT INTO grade (id,code,nbHeuresBase,tauxBase) VALUES (?,?,?,?)";
 	this.jdbcTemplate.update(sql, nouveauGrade.getId(), nouveauGrade.getCode(),nouveauGrade.getNbHeuresBase(),nouveauGrade.getTauxBase());
 	
 }
 @Override
 public void mettreAJour(Grade grade) {
-		String sql = "UPDATE GRADE SET CODE = ?,NBHEUREBASE = ?,TAUXBASE = ? WHERE ID = ? ";
+		String sql = "UPDATE GRADE SET CODE = ?,NBHEURESBASE = ?,TAUXBASE = ? WHERE ID = ? ";
 		this.jdbcTemplate.update(sql, grade.getCode(),grade.getNbHeuresBase(),grade.getTauxBase(),grade.getId());
 		
 	
@@ -46,7 +46,7 @@ public Grade mapRow(ResultSet rs, int rowNum) throws SQLException {
 Grade g = new Grade();
 g.setId(rs.getInt("ID"));
 g.setCode(rs.getString("CODE"));
-g.setNbHeuresBase(new BigDecimal(rs.getFloat("NBHEUREBASE")));
+g.setNbHeuresBase(new BigDecimal(rs.getFloat("NBHEURESBASE")));
 g.setTauxBase(new BigDecimal(rs.getFloat("TAUXBASE")));
 return g;
 }

@@ -6,6 +6,6 @@ import org.springframework.context.annotation.ImportResource;
 //Marque un bean de configuration Spring
 @Configuration
 //Import de la configuration XML dans une configuration Java
-@ImportResource("classpath:jdd-config.xml")
+//@ImportResource("classpath:jdd-config.xml")
 public class JeuxDeDonneesConfig {
 }

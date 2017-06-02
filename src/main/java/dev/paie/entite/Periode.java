@@ -10,11 +10,20 @@ import javax.persistence.Id;
 @Entity
 public class Periode {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDate dateDebut;
 	private LocalDate dateFin;
 	
+	public Periode(LocalDate dateDebut, LocalDate dateFin) {
+		super();
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+	}
+	public Periode() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public LocalDate getDateDebut() {
 		return dateDebut;
 	}
