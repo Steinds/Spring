@@ -46,7 +46,7 @@
 				<div class="col-md-4">
 					<select id="matricule" name="matricule" class="form-control">
 						<c:forEach items="${employe}" var="matricule">
-							<option value="${matricule.id}">${matricule.matricule}</option>
+							<option value="${matricule.matricule}">${matricule.matricule}</option>
 						</c:forEach>
 					</select>
 				</div>

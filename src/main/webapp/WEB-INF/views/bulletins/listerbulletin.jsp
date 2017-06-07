@@ -29,7 +29,7 @@
 				<c:forEach items="${bulletins}" var="bulletin">
 					<tr>
 						<td>${bulletin.periode.dateDebut} - ${bulletin.periode.dateFin}</td>
-						<td>${bulletins.remunerationEmploye.matricule}</td>
+						<td>${bulletin.remunerationEmploye.matricule}</td>
 						
 						<td><a>Visualiser</a></td>
 					</tr>
