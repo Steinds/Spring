@@ -20,6 +20,18 @@ public class BulletinSalaire {
 	private Periode periode;
 	private BigDecimal primeExceptionnelle;
 	
+	
+	
+	public BulletinSalaire(RemunerationEmploye remunerationEmploye, Periode periode, BigDecimal primeExceptionnelle) {
+		super();
+		this.remunerationEmploye = remunerationEmploye;
+		this.periode = periode;
+		this.primeExceptionnelle = primeExceptionnelle;
+	}
+	public BulletinSalaire() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public RemunerationEmploye getRemunerationEmploye() {
 		return remunerationEmploye;
 	}

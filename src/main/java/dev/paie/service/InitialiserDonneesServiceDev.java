@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,7 @@ import dev.paie.entite.Grade;
 import dev.paie.entite.Periode;
 import dev.paie.entite.ProfilRemuneration;
 import dev.paie.entite.RemunerationEmploye;
+import dev.paie.entite.Utilisateur;
 
 @Service
 public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
@@ -29,11 +31,18 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
     private ApplicationContext context;
     
     @PersistenceContext EntityManager em;
-    
+    @Autowired private PasswordEncoder passwordEncoder;
+
     
     @Override
     @Transactional
     public void initialiser() {
+      
+    	
+    	 context.getBeansOfType(Utilisateur.class).forEach((nomBean, bean) ->{ bean.setMotDePasse(this.passwordEncoder.encode(bean.getMotDePasse()));em.persist(bean);});
+    	
+    
+    	
     	context.getBeansOfType(Avantage.class).forEach((nomBean, bean) -> em.persist(bean));
         context.getBeansOfType(Grade.class).forEach((nomBean, bean) -> em.persist(bean));
         context.getBeansOfType(Entreprise.class).forEach((nomBean, bean) -> em.persist(bean));
