@@ -1,6 +1,7 @@
 package dev.paie.web.controller;
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,7 @@ public class BulletinSalaireController {
 		bull.setRemunerationEmploye(remu.findByMatricule(matricule).get(0));
 		bull.setPeriode(pr.findOne(Integer.parseInt(periode)));
 		bull.setPrimeExceptionnelle(primeExceptionnelle);
-		
+		bull.setDateCrea(ZonedDateTime.now());
 		bsr.saveAndFlush(bull);
 		return new ModelAndView("redirect:./liste");
 	}

@@ -1,5 +1,6 @@
 package dev.paie.web.controller;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,7 @@ public class RemunerationEmployeController {
 		remuE.setGrade(gs.findOne(Integer.parseInt(grade)));
 		remuE.setProfilRemuneration(pr.findOne(Integer.parseInt(profil)));
 		remuE.setMatricule(matricule);
+		remuE.setDateCrea(ZonedDateTime.now());
 		
 		remu.saveAndFlush(remuE);
 		return new ModelAndView("redirect:./liste");

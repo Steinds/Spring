@@ -20,6 +20,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+					<th>Date/Heure Création</th>
 					<th>Période</th>
 					<th>Matricule</th>
 					
@@ -28,6 +29,7 @@
 			<tbody>
 				<c:forEach items="${bulletins}" var="bulletin">
 					<tr>
+						<td>${bulletin.dateCrea}</td>
 						<td>${bulletin.periode.dateDebut} - ${bulletin.periode.dateFin}</td>
 						<td>${bulletin.remunerationEmploye.matricule}</td>
 						

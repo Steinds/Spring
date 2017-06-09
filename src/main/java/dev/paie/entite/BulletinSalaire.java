@@ -1,13 +1,14 @@
 package dev.paie.entite;
 
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class BulletinSalaire {
@@ -19,19 +20,28 @@ public class BulletinSalaire {
 	@ManyToOne
 	private Periode periode;
 	private BigDecimal primeExceptionnelle;
+	private ZonedDateTime dateCrea;
 	
-	
-	
-	public BulletinSalaire(RemunerationEmploye remunerationEmploye, Periode periode, BigDecimal primeExceptionnelle) {
+	public BulletinSalaire(RemunerationEmploye remunerationEmploye, Periode periode, BigDecimal primeExceptionnelle,
+			ZonedDateTime dateCrea) {
 		super();
 		this.remunerationEmploye = remunerationEmploye;
 		this.periode = periode;
 		this.primeExceptionnelle = primeExceptionnelle;
+		this.dateCrea = dateCrea;
 	}
 	public BulletinSalaire() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
+	public ZonedDateTime getDateCrea() {
+		return dateCrea;
+	}
+	public void setDateCrea(ZonedDateTime dateCrea) {
+		this.dateCrea = dateCrea;
+	}
+	
+	
 	public RemunerationEmploye getRemunerationEmploye() {
 		return remunerationEmploye;
 	}
